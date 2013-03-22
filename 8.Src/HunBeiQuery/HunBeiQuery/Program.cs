@@ -18,4 +18,18 @@ namespace HunBeiQuery
             Application.Run(new frmMain());
         }
     }
+
+
+    public class DBFactory 
+    {
+        private DBFactory()
+        {
+        }
+
+        static public HunBeiDBDataContext Create()
+        {
+            return new HunBeiDBDataContext();
+        }
+    }
+
 }

@@ -66,6 +66,22 @@ namespace HunBeiQuery
             return nf;
         }
 
+        private frmAmountCompare GetAmountCompareForm()
+        {
+            foreach (Form f in this.MdiChildren)
+            {
+                if (f is frmAmountCompare)
+                {
+                    return (frmAmountCompare)f;
+                }
+            }
+
+            frmAmountCompare nf = new frmAmountCompare();
+            nf.WindowState = FormWindowState.Maximized;
+            nf.MdiParent = this;
+            return nf;
+        }
+
         private frmMeasureDitchData GetMeasureDitchDataFrom()
         {
             // todo: temp curve
@@ -107,7 +123,7 @@ namespace HunBeiQuery
             f.Show();
             f.Activate();
         }
-
+        
         private void 历史曲线CToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmCurve f = GetCurveForm();
@@ -172,6 +188,13 @@ namespace HunBeiQuery
         private void frmMain_Resize(object sender, EventArgs e)
         {
             this.Refresh();
+        }
+
+        private void mnuAmountCompare_Click(object sender, EventArgs e)
+        {
+            frmAmountCompare f = GetAmountCompareForm();
+            f.Show();
+            f.Activate();
         }
     }
 }

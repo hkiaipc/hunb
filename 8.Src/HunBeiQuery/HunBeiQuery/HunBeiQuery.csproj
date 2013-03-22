@@ -49,6 +49,10 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Xdgk.Common, Version=0.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\GlobalAssembly\Xdgk.Common\Xdgk.Common.dll</HintPath>
+    </Reference>
     <Reference Include="ZedGraph, Version=5.1.5.21173, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\GlobalAssembly\Zed\ZedGraph.dll</HintPath>
@@ -81,6 +85,15 @@
     <Compile Include="Forms\frmMeasureDitchData.Designer.cs">
       <DependentUpon>frmMeasureDitchData.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAmountCompare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAmountCompare.Designer.cs">
+      <DependentUpon>frmAmountCompare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HunBeiDB.cs">
+      <DependentUpon>HunBeiDB.dbml</DependentUpon>
+    </Compile>
     <Compile Include="HunBeiDB.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -108,6 +121,10 @@
       <DependentUpon>frmMeasureDitchData.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAmountCompare.resx">
+      <DependentUpon>frmAmountCompare.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -119,6 +136,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC\UCSluice.resx">
       <DependentUpon>UCSluice.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\UCConditionDT.resx">
+      <DependentUpon>UCConditionDT.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -151,6 +172,12 @@
     </Compile>
     <Compile Include="UC\UCSluice.Designer.cs">
       <DependentUpon>UCSluice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UCConditionDT.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\UCConditionDT.Designer.cs">
+      <DependentUpon>UCConditionDT.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

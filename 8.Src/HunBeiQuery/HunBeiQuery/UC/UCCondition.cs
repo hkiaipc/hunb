@@ -59,7 +59,7 @@ namespace HunBeiQuery
                         Value = p.StationID
                         //Value = p
                     };
-            System.Collections.IList list = q.ToList ();
+            System.Collections.IList list = q.ToList();
             if (IsAddAll)
             {
                 list.Insert(0,
@@ -77,22 +77,22 @@ namespace HunBeiQuery
 
         }
 
-#region IsAddAll
-/// <summary>
-/// 
-/// </summary>
-public bool IsAddAll
-{
-	get
-	{
-		return _isAddAll;
-	}
-	set
-	{
-		_isAddAll = value;
-	}
-} private bool _isAddAll = true;
-#endregion //IsAddAll
+        #region IsAddAll
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool IsAddAll
+        {
+            get
+            {
+                return _isAddAll;
+            }
+            set
+            {
+                _isAddAll = value;
+            }
+        } private bool _isAddAll = true;
+        #endregion //IsAddAll
         private void UCCondition_Load(object sender, EventArgs e)
         {
             BindStationName();

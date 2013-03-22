@@ -38,6 +38,7 @@
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助HToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAmountCompare = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,6 +61,7 @@
             this.toolStripMenuItem1,
             this.历史数据HToolStripMenuItem,
             this.历史曲线CToolStripMenuItem,
+            this.mnuAmountCompare,
             this.toolStripMenuItem2,
             this.退出ToolStripMenuItem});
             this.文件ToolStripMenuItem.Name = "文件ToolStripMenuItem";
@@ -69,38 +71,38 @@
             // mnuLast
             // 
             this.mnuLast.Name = "mnuLast";
-            this.mnuLast.Size = new System.Drawing.Size(136, 22);
+            this.mnuLast.Size = new System.Drawing.Size(152, 22);
             this.mnuLast.Text = "最新数据(&L)";
             this.mnuLast.Click += new System.EventHandler(this.mnuLast_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(133, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
             // 
             // 历史数据HToolStripMenuItem
             // 
             this.历史数据HToolStripMenuItem.Name = "历史数据HToolStripMenuItem";
-            this.历史数据HToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.历史数据HToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.历史数据HToolStripMenuItem.Text = "历史数据(&H)";
             this.历史数据HToolStripMenuItem.Click += new System.EventHandler(this.历史数据HToolStripMenuItem_Click);
             // 
             // 历史曲线CToolStripMenuItem
             // 
             this.历史曲线CToolStripMenuItem.Name = "历史曲线CToolStripMenuItem";
-            this.历史曲线CToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.历史曲线CToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.历史曲线CToolStripMenuItem.Text = "历史曲线(&C)";
             this.历史曲线CToolStripMenuItem.Click += new System.EventHandler(this.历史曲线CToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(133, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.退出ToolStripMenuItem.Text = "退出(&X)";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
@@ -118,6 +120,13 @@
             this.关于AToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.关于AToolStripMenuItem.Text = "关于(&A)";
             this.关于AToolStripMenuItem.Click += new System.EventHandler(this.关于AToolStripMenuItem_Click);
+            // 
+            // mnuAmountCompare
+            // 
+            this.mnuAmountCompare.Name = "mnuAmountCompare";
+            this.mnuAmountCompare.Size = new System.Drawing.Size(152, 22);
+            this.mnuAmountCompare.Text = "比较";
+            this.mnuAmountCompare.Click += new System.EventHandler(this.mnuAmountCompare_Click);
             // 
             // frmMain
             // 
@@ -151,6 +160,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem 帮助HToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 关于AToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuAmountCompare;
     }
 }
 
