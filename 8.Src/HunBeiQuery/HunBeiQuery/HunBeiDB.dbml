@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="HunBeiGuanQuDBV2" Class="HunBeiDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=HunBeiGuanQuDBV2;Persist Security Info=True;User ID=sa" SettingsObjectName="HunBeiQuery.Properties.Settings" SettingsPropertyName="HunBeiGuanQuDBV2ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tblDevice" Member="tblDevice">
+    <Type Name="tblDevice">
+      <Column Name="DeviceID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StationID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Address" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DeviceKind" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DeviceType" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Deleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Association Name="tblDevice_tblMeasureSluiceData" Member="tblMeasureSluiceData" OtherKey="DeviceID" Type="tblMeasureSluiceData" />
+      <Association Name="tblStation_tblDevice" Member="tblStation" ThisKey="StationID" Type="tblStation" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblStation" Member="tblStation">
+    <Type Name="tblStation">
+      <Column Name="GroupID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Deleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="CommuniType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CommuniTypeContent" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Association Name="tblStation_tblDevice" Member="tblDevice" OtherKey="StationID" Type="tblDevice" />
+      <Association Name="tblGroup_tblStation" Member="tblGroup" ThisKey="GroupID" Type="tblGroup" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblGroup" Member="tblGroup">
+    <Type Name="tblGroup">
+      <Column Name="GroupID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GroupName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GroupLeader" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ContactWay" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Deleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="tblGroup_tblStation" Member="tblStation" OtherKey="GroupID" Type="tblStation" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblMeasureSluiceData" Member="tblMeasureSluiceData">
+    <Type Name="tblMeasureSluiceData">
+      <Column Name="MeasureSluiceDataID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DeviceID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BeforeWL" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="BehindWL" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="InstantFlux" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="Height" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="RemainedAmount" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="UsedAmount" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Association Name="tblMeasureSluiceData_tblMeasureSluiceDataLast" Member="tblMeasureSluiceDataLast" OtherKey="MeasureSluiceDataID" Type="tblMeasureSluiceDataLast" />
+      <Association Name="tblDevice_tblMeasureSluiceData" Member="tblDevice" ThisKey="DeviceID" Type="tblDevice" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblMeasureSluiceDataLast" Member="tblMeasureSluiceDataLast">
+    <Type Name="tblMeasureSluiceDataLast">
+      <Column Name="MeasureSluiceDataLastID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MeasureSluiceDataID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tblMeasureSluiceData_tblMeasureSluiceDataLast" Member="tblMeasureSluiceData" ThisKey="MeasureSluiceDataID" Type="tblMeasureSluiceData" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vMeasureSluiceData" Member="vMeasureSluiceData">
+    <Type Name="vMeasureSluiceData">
+      <Column Name="GroupID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DeviceID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GroupName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StationName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="MeasureSluiceDataID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BeforeWL" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="BehindWL" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="InstantFlux" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="Height" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="RemainedAmount" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="UsedAmount" Type="System.Single" DbType="Real" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vMeasureSluiceDataLast" Member="vMeasureSluiceDataLast">
+    <Type Name="vMeasureSluiceDataLast">
+      <Column Name="GroupID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DeviceID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GroupName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StationName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="MeasureSluiceDataID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BeforeWL" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="BehindWL" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="InstantFlux" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="Height" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="RemainedAmount" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="UsedAmount" Type="System.Single" DbType="Real" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

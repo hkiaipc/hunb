@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <system.runtime.remoting>
+        <application name="RemoteServer">
+            <service>
+                <wellknown type="DTLib.DTRequest,DTLib" 
+                           objectUri="DTLib.DTRequest" 
+                           mode="SingleCall " />
+            </service>
+            <channels>
+                <channel ref="tcp" port="9999"/>
+            </channels>
+        </application>
+    </system.runtime.remoting>
+</configuration>

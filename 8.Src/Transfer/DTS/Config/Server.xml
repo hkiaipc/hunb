@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <system.runtime.remoting>
+    <application name="RemoteServer">
+      <service>
+        <wellknown type="DTLib.DTRequest,DTLib"
+                   objectUri="DTLib.DTRequest"
+                   mode="Singleton"
+                           />
+      </service>
+      <channels>
+        <channel ref="tcp" port="9999">
+          <clientProviders>
+            <formatter ref="binary"/>
+          </clientProviders>
+        </channel>
+      </channels>
+
+    </application>
+    <customErrors mode="Off"/>
+  </system.runtime.remoting>
+</configuration>
