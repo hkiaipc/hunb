@@ -152,11 +152,11 @@
             // lblDT
             // 
             this.lblDT.AutoSize = true;
-            this.lblDT.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblDT.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblDT.ForeColor = System.Drawing.Color.Red;
             this.lblDT.Location = new System.Drawing.Point(123, 520);
             this.lblDT.Name = "lblDT";
-            this.lblDT.Size = new System.Drawing.Size(20, 19);
+            this.lblDT.Size = new System.Drawing.Size(17, 16);
             this.lblDT.TabIndex = 12;
             this.lblDT.Text = "-";
             // 
