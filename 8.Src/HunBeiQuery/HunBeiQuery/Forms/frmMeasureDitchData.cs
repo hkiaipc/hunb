@@ -57,6 +57,7 @@ namespace HunBeiQuery
             AddColumn ("闸前水位", "BeforeWL");
             AddColumn ("闸后水位", "BehindWL");
             AddColumn ("瞬时流量", "InstantFlux");
+            AddColumn ("剩余水量", "RemainedAmount");
         }
 
         /// <summary>

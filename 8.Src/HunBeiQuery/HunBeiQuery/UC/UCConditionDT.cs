@@ -48,6 +48,12 @@ namespace HunBeiQuery
         /// <param name="e"></param>
         private void btnQuery_Click(object sender, EventArgs e)
         {
+            if (Begin.Year > End.Year)
+            {
+                NUnit.UiKit.UserMessage.DisplayFailure("开始年份不能大于结束年份");
+                return;
+            }
+
             if (this.QueryEvent != null)
             {
                 QueryEvent(this, EventArgs.Empty);

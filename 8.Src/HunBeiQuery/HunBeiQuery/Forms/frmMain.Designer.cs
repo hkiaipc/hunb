@@ -34,11 +34,11 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.历史数据HToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.历史曲线CToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAmountCompare = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助HToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuAmountCompare = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,6 +94,13 @@
             this.历史曲线CToolStripMenuItem.Text = "历史曲线(&C)";
             this.历史曲线CToolStripMenuItem.Click += new System.EventHandler(this.历史曲线CToolStripMenuItem_Click);
             // 
+            // mnuAmountCompare
+            // 
+            this.mnuAmountCompare.Name = "mnuAmountCompare";
+            this.mnuAmountCompare.Size = new System.Drawing.Size(152, 22);
+            this.mnuAmountCompare.Text = "水量比较(S)";
+            this.mnuAmountCompare.Click += new System.EventHandler(this.mnuAmountCompare_Click);
+            // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
@@ -120,13 +127,6 @@
             this.关于AToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.关于AToolStripMenuItem.Text = "关于(&A)";
             this.关于AToolStripMenuItem.Click += new System.EventHandler(this.关于AToolStripMenuItem_Click);
-            // 
-            // mnuAmountCompare
-            // 
-            this.mnuAmountCompare.Name = "mnuAmountCompare";
-            this.mnuAmountCompare.Size = new System.Drawing.Size(152, 22);
-            this.mnuAmountCompare.Text = "比较";
-            this.mnuAmountCompare.Click += new System.EventHandler(this.mnuAmountCompare_Click);
             // 
             // frmMain
             // 

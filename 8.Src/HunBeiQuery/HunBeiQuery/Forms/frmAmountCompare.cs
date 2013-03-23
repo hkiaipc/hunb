@@ -18,6 +18,8 @@ namespace HunBeiQuery
             this.ucConditionDT1.QueryEvent += new EventHandler(ucConditionDT1_QueryEvent);
             this.zedGraphControl1.IsShowPointValues = true;
             this.zedGraphControl1.GraphPane.YAxis.MajorGrid.IsVisible = true;
+            GraphPane gp = this.zedGraphControl1.GraphPane;
+            gp.Chart.Fill = new Fill(Color.LightGoldenrodYellow);
         }
 
         /// <summary>
