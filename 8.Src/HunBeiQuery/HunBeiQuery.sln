@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HunBeiQuery", "HunBeiQuery\HunBeiQuery.csproj", "{A432AC95-2528-4D0E-82A4-8B5CEC57C4DB}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "HunBeiQuerySetup", "HunBeiQuerySetup\HunBeiQuerySetup.vdproj", "{2E9CDFAA-E1FA-4F57-83FC-24748B3E81BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{A432AC95-2528-4D0E-82A4-8B5CEC57C4DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A432AC95-2528-4D0E-82A4-8B5CEC57C4DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A432AC95-2528-4D0E-82A4-8B5CEC57C4DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E9CDFAA-E1FA-4F57-83FC-24748B3E81BE}.Debug|Any CPU.ActiveCfg = Debug
+		{2E9CDFAA-E1FA-4F57-83FC-24748B3E81BE}.Debug|Any CPU.Build.0 = Debug
+		{2E9CDFAA-E1FA-4F57-83FC-24748B3E81BE}.Release|Any CPU.ActiveCfg = Release
+		{2E9CDFAA-E1FA-4F57-83FC-24748B3E81BE}.Release|Any CPU.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
