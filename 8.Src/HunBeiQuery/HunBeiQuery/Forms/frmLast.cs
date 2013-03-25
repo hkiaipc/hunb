@@ -19,7 +19,7 @@ namespace HunBeiQuery
             //this.panel1.AutoScroll = true;
         }
 
-        HunBeiDBDataContext db = new HunBeiDBDataContext();
+        HunBeiDBDataContext db = DBFactory.Create();
 
         /// <summary>
         /// 

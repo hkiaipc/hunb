@@ -11,7 +11,7 @@ namespace HunBeiQuery
 {
     public partial class frmMeasureDitchData : Form
     {
-        HunBeiDBDataContext _db = new HunBeiDBDataContext();
+        HunBeiDBDataContext _db = DBFactory.Create();
         
 
         /// <summary>
@@ -23,7 +23,7 @@ namespace HunBeiQuery
             this.dataGridView1.AutoGenerateColumns = false;
             SetColumn();
             ucCondition1.QueryEvent += new EventHandler(ucCondition1_QueryEvent);
-            _db.Log = Console.Out;
+            //_db.Log = Console.Out;
         }
 
         void ucCondition1_QueryEvent(object sender, EventArgs e)

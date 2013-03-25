@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using Xdgk.Common;
 
 namespace HunBeiQuery
 {
@@ -13,23 +14,26 @@ namespace HunBeiQuery
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new frmMain());
+
+            new App().Run();
         }
     }
 
-
-    public class DBFactory 
+    public class App : AppBase
     {
-        private DBFactory()
+        public override Form MainForm
         {
-        }
-
-        static public HunBeiDBDataContext Create()
-        {
-            return new HunBeiDBDataContext();
-        }
+            get
+            {
+                if (_mainForm == null)
+                {
+                    _mainForm = new frmMain();
+                }
+                return _mainForm;
+            }
+        } private frmMain _mainForm;
     }
-
 }

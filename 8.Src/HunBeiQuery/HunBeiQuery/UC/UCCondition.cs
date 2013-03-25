@@ -51,7 +51,7 @@ namespace HunBeiQuery
         /// </summary>
         void BindStationName()
         {
-            HunBeiDBDataContext db = new HunBeiDBDataContext();
+            HunBeiDBDataContext db = DBFactory.Create();
             var q = from p in db.tblStation
                     select new
                     {

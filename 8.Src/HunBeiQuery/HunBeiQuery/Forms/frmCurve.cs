@@ -55,7 +55,9 @@ namespace HunBeiQuery.Forms
         }
         #endregion //zedGraphControl1_PointValueEvent
 
-        HunBeiDBDataContext _db = new HunBeiDBDataContext();
+        //HunBeiDBDataContext _db = new HunBeiDBDataContext();
+        HunBeiDBDataContext _db = DBFactory.Create();
+
         /// <summary>
         /// 
         /// </summary>

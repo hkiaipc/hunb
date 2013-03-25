@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppConfig.cs" />
+    <Compile Include="DBFactory.cs" />
     <Compile Include="DGUI.cs" />
     <Compile Include="Forms\frmCurve.cs">
       <SubType>Form</SubType>
@@ -185,9 +186,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resource\background.jpg" />
-    <Content Include="Resource\mainbg.jpg">
+    <None Include="Resource\mainbg.jpg.bak">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </None>
     <Content Include="Resource\ZhaMen.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
