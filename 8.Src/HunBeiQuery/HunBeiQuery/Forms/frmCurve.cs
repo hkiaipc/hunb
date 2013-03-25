@@ -16,13 +16,31 @@ namespace HunBeiQuery.Forms
         {
             InitializeComponent();
             this.ucCondition1.IsAddAll = false;
-            this.zedGraphControl1.IsShowPointValues = true;
-            this.zedGraphControl1.PointValueEvent += new ZedGraphControl.PointValueHandler(zedGraphControl1_PointValueEvent);
+            this.zedWL.IsShowPointValues = true;
+            this.zedIF.IsShowPointValues = true;
+            this.zedSUM.IsShowPointValues = true;
+
+            this.zedWL.PointValueEvent += new ZedGraphControl.PointValueHandler(zedGraphControl1_PointValueEvent);
+            this.zedIF.PointValueEvent += new ZedGraphControl.PointValueHandler(zedGraphControl1_PointValueEvent);
+            this.zedSUM.PointValueEvent += new ZedGraphControl.PointValueHandler(zedGraphControl1_PointValueEvent);
             this.ucCondition1.QueryEvent += new EventHandler(ucCondition1_QueryEvent);
-            GraphPane gp = this.zedGraphControl1.MasterPane[0];
-            ZedConfig.Default.ConfigWLLineGraphPane(this.zedGraphControl1.MasterPane[0],
+            GraphPane gp = this.zedWL.MasterPane[0];
+            ZedConfig.Default.ConfigWLLineGraphPane(this.zedWL.MasterPane[0],
                 "时间", "数据(cm)");
             gp.Chart.Fill = new Fill(Color.LightGoldenrodYellow);
+
+
+            gp = this.zedIF.MasterPane[0];
+            ZedConfig.Default.ConfigWLLineGraphPane(gp,
+                "时间", "瞬时流量(m3/s)");
+            gp.Chart.Fill = new Fill(Color.LightGoldenrodYellow);
+
+            gp = this.zedSUM.MasterPane[0];
+            ZedConfig.Default.ConfigWLLineGraphPane(gp,
+                "时间", "剩余水量(m3)");
+            gp.Chart.Fill = new Fill(Color.LightGoldenrodYellow);
+
+
         }
 
         /// <summary>
@@ -75,7 +93,7 @@ namespace HunBeiQuery.Forms
             List<vMeasureSluiceData> list = q.ToList();
             LineHelper[] lines = GetLineHelpers(list);
 
-            GraphPane mypane = this.zedGraphControl1.MasterPane[0];
+            GraphPane mypane = this.zedWL.MasterPane[0];
             mypane.CurveList.Clear();
             foreach (LineHelper l in lines)
             {
@@ -87,8 +105,54 @@ namespace HunBeiQuery.Forms
             // title
             //
             mypane.Title.Text = this.GetCurveTitle();
-            this.zedGraphControl1.AxisChange();
-            this.zedGraphControl1.Invalidate(true);
+            this.zedWL.AxisChange();
+            this.zedWL.Invalidate(true);
+
+
+
+            // if
+            //
+            LineHelper lh = GetIFLineHelper ( list );
+            mypane = this.zedIF.MasterPane[0];
+            mypane.CurveList.Clear();
+            LineItem li = mypane.AddCurve(lh.Text, lh.PointList, lh.Color);
+            li.Line.Width = lh.LineWidth;
+            li.Symbol = lh.Symbol;
+            mypane.Title.Text = GetIFTitle ();
+            mypane.AxisChange();
+            this.zedIF.Invalidate();
+
+            // remain
+            //
+            lh = GetRemainedLineHelper(list);
+            mypane = this.zedSUM.MasterPane[0];
+            mypane.CurveList.Clear();
+            li = mypane.AddCurve(lh.Text, lh.PointList, lh.Color);
+            li.Line.Width = lh.LineWidth;
+            li.Symbol = lh.Symbol;
+            mypane.Title.Text = GetRemainedTitle();
+            mypane.AxisChange();
+            this.zedSUM.Invalidate();
+
+
+        }
+
+        private string GetIFTitle()
+        {
+            string s = string.Format("{0} ~ {1} {2} 瞬时流量曲线",
+                this.ucCondition1.Begin, 
+                this.ucCondition1.End ,
+                this.ucCondition1.SelectedStationName);
+            return s;
+        }
+
+        private string GetRemainedTitle()
+        {
+            string s = string.Format("{0} ~ {1} {2} 剩余水量曲线",
+                this.ucCondition1.Begin, 
+                this.ucCondition1.End ,
+                this.ucCondition1.SelectedStationName);
+            return s;
         }
 
         /// <summary>
@@ -102,6 +166,34 @@ namespace HunBeiQuery.Forms
                 this.ucCondition1.End ,
                 this.ucCondition1.SelectedStationName);
             return s;
+        }
+
+        private LineHelper GetIFLineHelper(List<vMeasureSluiceData> list)
+        {
+            LineHelper r = new LineHelper("瞬时流量", Color.Red, 1, SymbolType.Square);
+            foreach ( vMeasureSluiceData item in list )
+            {
+                DateTime dt = (DateTime)item.DT;
+                XDate xdt = XDate.DateTimeToXLDate(dt);
+                float instantFlux= (float)item.InstantFlux;
+
+                r.PointList.Add(xdt, instantFlux);
+            }
+            return r;
+        }
+
+        private LineHelper GetRemainedLineHelper(List<vMeasureSluiceData> list)
+        {
+            LineHelper r = new LineHelper("剩余水量", Color.Red, 1, SymbolType.Square);
+            foreach ( vMeasureSluiceData item in list )
+            {
+                DateTime dt = (DateTime)item.DT;
+                XDate xdt = XDate.DateTimeToXLDate(dt);
+                float instantFlux = (float)item.RemainedAmount;
+
+                r.PointList.Add(xdt, instantFlux);
+            }
+            return r;
         }
 
         /// <summary>
@@ -149,7 +241,14 @@ namespace HunBeiQuery.Forms
 
         private void frmCurve_Load(object sender, EventArgs e)
         {
-            ZedConfig.Default.InitGraphPane(this.zedGraphControl1.MasterPane[0], "");
+            ZedConfig.Default.InitGraphPane(this.zedWL.MasterPane[0], "");
+            ZedConfig.Default.InitGraphPane(this.zedIF.MasterPane[0], "");
+            ZedConfig.Default.InitGraphPane(this.zedSUM.MasterPane[0], "");
+
+        }
+
+        private void ucCondition1_Load(object sender, EventArgs e)
+        {
 
         }
     }

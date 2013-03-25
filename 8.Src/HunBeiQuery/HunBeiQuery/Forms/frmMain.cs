@@ -196,5 +196,30 @@ namespace HunBeiQuery
             f.Show();
             f.Activate();
         }
+
+        private void tsbLast_Click(object sender, EventArgs e)
+        {
+            mnuLast_Click(null, null);
+        }
+
+        private void tsbHistory_Click(object sender, EventArgs e)
+        {
+            历史数据HToolStripMenuItem_Click(null, null);
+        }
+
+        private void tsbLine_Click(object sender, EventArgs e)
+        {
+            历史曲线CToolStripMenuItem_Click(null, null);
+        }
+
+        private void tsbCompare_Click(object sender, EventArgs e)
+        {
+            mnuAmountCompare_Click(null, null);
+        }
+
+        private void tsbInfo_Click(object sender, EventArgs e)
+        {
+            关于AToolStripMenuItem_Click(null, null);
+        }
     }
 }
